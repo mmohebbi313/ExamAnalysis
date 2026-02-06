@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, Children, isValidElement, cloneElement, ReactNode } from 'react';
+import { useState, useEffect, useCallback, Children, isValidElement, cloneElement, ReactNode  } from 'react';
+import React from 'react';
 
 interface GentleSliderProps {
   children: ReactNode;
@@ -102,7 +103,7 @@ const renderSlides = () => {
           }
         }}
       >
-        {cloneElement(item as React.ReactElement, {
+        {cloneElement(item as React.ReactElement<{ className?: string }>, {
           className: `${(item as React.ReactElement).props.className || ''} ${
             position === 'center' ? '' : 'pointer-events-none'
           }`
