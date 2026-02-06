@@ -54,7 +54,7 @@ const ManualDropDownList: React.FC<DropdownProps> = ({
     setSelected(option);
     setIsOpen(false);
     onSelect?.(option.value);
-    setForm((prev) => ({
+    setForm?.((prev) => ({
       ...prev,
       [name ?? 'value']: option.value,
     }));
