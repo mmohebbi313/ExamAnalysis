@@ -104,9 +104,9 @@ const renderSlides = () => {
         }}
       >
         {cloneElement(item as React.ReactElement<{ className?: string }>, {
-          className: `${(item as React.ReactElement).props.className || ''} ${
-            position === 'center' ? '' : 'pointer-events-none'
-          }`
+          // className: `${(item as React.ReactElement).props.className || ''} ${
+          //   position === 'center' ? '' : 'pointer-events-none'
+          // }`
         })}
       </div>
     );
