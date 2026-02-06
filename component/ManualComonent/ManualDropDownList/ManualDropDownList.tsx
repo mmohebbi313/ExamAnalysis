@@ -30,8 +30,8 @@ const ManualDropDownList: React.FC<DropdownProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<Option | null>(null);
   const { width , height} = useWindowSize()
-  const dropdownRef = useRef(null)
-  const optionListRef = useRef(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+  const optionListRef = useRef<HTMLSelectElement>(null)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
