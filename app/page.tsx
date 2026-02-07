@@ -7,6 +7,7 @@ import Footer from "@/component/Layout/footer";
 import { useWindowSize } from "@/component/Tools/UseWindowSize/useWindowSize"
 import { DashboardOutlined , SearchOutlined , FileTextOutlined } from "@ant-design/icons";
 import SidebarSlider from "@/component/Layout/Sidebar/sidebar";
+import Link from "next/link";
 
 export default function Home() {
 
@@ -39,10 +40,11 @@ export default function Home() {
       </h4>
       </div>
 
-
+      <Link href='/analys'>
       <button className=" bg-[#1986B7] rounded-3xl w-fit h-fit px-4 py-1 text-[#E4EDF7]  shadow-[0_0px_10px] shadow-black cursor-pointer hover:scale-[1.05] duration-300">
         Start Free Analysis
       </button>
+      </Link>
 
       <div id="Business-partner" className=" w-fit bg-[#F0F5F9] rounded flex flex-row gap-2 mt-[2vw]">
          <img src="/img/homePage/tizHoshan.png" alt="tizhoshan"  className=" size-[5vw] filter grayscale opacity-40 mr-1 ml-2 my-1"/>
@@ -132,10 +134,12 @@ context={'Determining the level of difficulty of the test according to the test 
         of your questions in under 30 seconds.
       </h4>
       </div>
-
+      
+      <Link href='/analys'>
       <button className=" bg-[#1986B7] rounded-3xl w-fit h-fit px-4 py-1 text-[#E4EDF7]  shadow-[0_0px_10px] shadow-black cursor-pointer hover:scale-[1.05] duration-300">
         Start Free Analysis
       </button>
+      </Link>
 
       <div id="Business-partner" className=" w-fit bg-[#F0F5F9] rounded flex flex-row gap-2 ">
          <img src="/img/homePage/tizHoshan.png" alt="tizhoshan"  className={` ${width <= 280 ? 'size-14.5' : 'size-17.5' }  filter grayscale opacity-40 mr-1 ml-2 my-1`}/>
