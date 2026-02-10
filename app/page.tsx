@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Header from "@/component/Layout/header";
-import Feature from "@/component/Sections/Feature"
+import Feature from "@/component/Sections/Feature/Feature"
 import Footer from "@/component/Layout/footer";
 import { useWindowSize } from "@/component/Tools/UseWindowSize/useWindowSize"
 import { DashboardOutlined , SearchOutlined , FileTextOutlined } from "@ant-design/icons";

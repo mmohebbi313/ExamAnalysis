@@ -10,6 +10,7 @@ import ManualDropDownList from "@/component/ManualComonent/ManualDropDownList/Ma
 import Description from "@/component/Sections/Description/Description"
 
 
+
 export default function Analys() {
   
   const proprRefParticipants = useRef('')

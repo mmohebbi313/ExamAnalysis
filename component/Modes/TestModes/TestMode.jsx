@@ -5,14 +5,17 @@ import ManualButton from "@/component/ManualComonent/ManualBotton/maualBotton"
 import ManualeTextBox from "@/component/ManualComonent/ManualeTextBox/manualTextBox"
 import { useWindowSize } from "@/component/Tools/UseWindowSize/useWindowSize"
 import ManualDropDownList from "@/component/ManualComonent/ManualDropDownList/ManualDropDownList"
+import ExamAnalysisService from "@/component/Tools/ExamAnalysisService/ExamAnalysisService"
+import Result from "@/component/Sections/Result/Result"
 
 const TestMode = () => {
 
 
-    const proprRefParticipants = useRef('')
     const [ participants , setParticipants] = useState(0)
     const { width , height } = useWindowSize()
     const [ form , setForm] = useState({})
+    const [ analysisData , setAnalysisData] = useState({})
+    const [showResult , setShowResult] = useState(false)
 
     const optionsCorrectOption = [
       { value: '1' , label: '1'},
@@ -22,16 +25,20 @@ const TestMode = () => {
     ]
   
     const setProp = () => {
-      console.log(proprRefParticipants.current.search);
+      setShowResult(true)
     }
 
     useEffect( () => {
-        console.log('form' , form);
+      setShowResult(false)
     } , [form])
 
+
     return (
+      
         <div id="importDataAnalysTestMode" className={` w-full`} >
-         
+
+         <ExamAnalysisService form={form} setAnalysisData={setAnalysisData}/>
+
          <div id="importData" className={` w-full flex md:flex-row flex-col h-full`}>
            
            <fieldset className=" h-full border border-blue-950 rounded-lg md:w-full w-[99vw] md:m-2">
@@ -55,11 +62,10 @@ const TestMode = () => {
              /> 
              </div>
 
-             <div className="">
+             {/* <div className="">
              <ManualeTextBox
              title={'Number Question'}
              type="number"
-             ref={proprRefParticipants}
              name='numberQuestion'
              setForm={setForm}
              />
@@ -74,7 +80,7 @@ const TestMode = () => {
               setForm={setForm}
               name="correctOption"
               />
-             </div>
+             </div> */}
 
              <div className="">
              <ManualeTextBox
@@ -98,14 +104,16 @@ const TestMode = () => {
              title={'Number of people in a strong group'}
              type="number"
              setForm={setForm}
+             name="numberStrong"
              /> 
              </div>
 
              <div className="">
              <ManualeTextBox
-             title={'Number of people in the vulnerable group'}
+             title={'Number of people in the weak group'}
              type="number"
              setForm={setForm}
+             name="numberWeak"
              /> 
              </div>
 
@@ -114,6 +122,7 @@ const TestMode = () => {
              title={'Correct number in strong group'}
              type="number"
              setForm={setForm}
+             name="numberCorrectStrong"
              /> 
              </div>
 
@@ -122,6 +131,7 @@ const TestMode = () => {
              title={'Correct number in weak group'}
              type="number"
              setForm={setForm}
+             name="numberCorrectWeak"
              /> 
              </div>
 
@@ -138,6 +148,11 @@ const TestMode = () => {
             </div> 
             </div>
 
+            { showResult &&
+            <div id="ResultPart">
+              <Result/>
+            </div>
+            }
 
             
            </div>
