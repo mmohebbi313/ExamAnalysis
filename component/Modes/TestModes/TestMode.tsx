@@ -1,21 +1,30 @@
 
 
-import { useEffect, useRef , useState} from "react"
+import React, { useEffect, useRef , useState} from "react"
 import ManualButton from "@/component/ManualComonent/ManualBotton/maualBotton"
 import ManualeTextBox from "@/component/ManualComonent/ManualeTextBox/manualTextBox"
 import { useWindowSize } from "@/component/Tools/UseWindowSize/useWindowSize"
 import ManualDropDownList from "@/component/ManualComonent/ManualDropDownList/ManualDropDownList"
 import ExamAnalysisService from "@/component/Tools/ExamAnalysisService/ExamAnalysisService"
 import Result from "@/component/Sections/Result/Result"
+import ManualLoader from "@/component/ManualComonent/ManualLoaders/ManualLoders"
+import AnalysisResultModal from "@/component/Sections/AnalysisResultModal/AnalysisResultModal"
+import { Interface } from "readline"
 
-const TestMode = () => {
+interface TestModeProps {
+  setShowResult: React.Dispatch<React.SetStateAction<boolean>> ;
+  setAnalysisData?: (updater: (prev: Record<string, any>) => Record<string, any>) => void;
+}
+
+
+const TestMode : React.FC<TestModeProps> = ({setShowResult , setAnalysisData}) => {
 
 
     const [ participants , setParticipants] = useState(0)
     const { width , height } = useWindowSize()
-    const [ form , setForm] = useState({})
-    const [ analysisData , setAnalysisData] = useState({})
-    const [showResult , setShowResult] = useState(false)
+    const [ form , setForm] = useState({ participants: 0 , numberCorrect: 0})
+    const [ activeButton , setActiveButton ] = useState(true)
+    
 
     const optionsCorrectOption = [
       { value: '1' , label: '1'},
@@ -30,12 +39,17 @@ const TestMode = () => {
 
     useEffect( () => {
       setShowResult(false)
+
+      if (form.participants != 0 && form.numberCorrect != 0) {
+        setActiveButton(false)
+      }
     } , [form])
 
 
     return (
       
         <div id="importDataAnalysTestMode" className={` w-full`} >
+
 
          <ExamAnalysisService form={form} setAnalysisData={setAnalysisData}/>
 
@@ -144,15 +158,12 @@ const TestMode = () => {
             <ManualButton
              title="analys"
              onClick={setProp}
+             disabled={activeButton}
              />
             </div> 
             </div>
 
-            { showResult &&
-            <div id="ResultPart">
-              <Result/>
-            </div>
-            }
+
 
             
            </div>

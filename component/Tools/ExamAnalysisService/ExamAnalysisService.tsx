@@ -24,14 +24,19 @@ const ExamAnalysisService: React.FC<ExamAnalysisServiceProp> = ({ form, setAnaly
         if (!form) return;
         
         if (form.numberCorrect , form.participants) {
+        
+        const resultData = (form.numberCorrect / form.participants) * 100
 
-        setDifficultyIndex( (form.numberCorrect / form.participants) * 100 )
+
+        setDifficultyIndex(Number(resultData.toFixed(2)))
             
         }
 
         if (form.numberStrong , form.numberWeak , form.numberCorrectStrong , form.numberCorrectWeak) {
 
-        setDiscriminationIndex( ( form.numberCorrectStrong / form.numberStrong ) - ( form.numberCorrectWeak / form.numberWeak) )
+        const resultData = ( form.numberCorrectStrong / form.numberStrong ) - ( form.numberCorrectWeak / form.numberWeak)
+
+        setDiscriminationIndex(Number(resultData.toFixed(2)))
                     
         }
         

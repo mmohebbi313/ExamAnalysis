@@ -3,11 +3,13 @@ import { FC } from "react"
 interface ManualButtonProps {
  title: string;
  onClick: Function;
+ disabled: boolean;
 }
 
 const ManualButton :FC<ManualButtonProps>  =  ({
     title,
-    onClick
+    onClick,
+    disabled
 }) => {
  
     return (
@@ -16,6 +18,7 @@ const ManualButton :FC<ManualButtonProps>  =  ({
    text-[#E4EDF7]  shadow-[0_0px_10px] shadow-black 
    cursor-pointer hover:scale-[1.05] duration-300"
    onClick={() => onClick()}
+   disabled={disabled}
    >
     {title}
     </button>
