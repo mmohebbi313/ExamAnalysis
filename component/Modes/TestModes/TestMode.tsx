@@ -11,9 +11,22 @@ import ManualLoader from "@/component/ManualComonent/ManualLoaders/ManualLoders"
 import AnalysisResultModal from "@/component/Sections/AnalysisResultModal/AnalysisResultModal"
 import { Interface } from "readline"
 
+// تعریف تایپ دقیق
+type AnalysisDataType = {
+  difficultyIndex: number;
+  discriminationIndex: number;
+}
+
+// استفاده در Handler
+// interface TestModeAttributeHandlerProps {
+//   setAnalysisData: React.Dispatch<React.SetStateAction<AnalysisDataType>>;
+//   // یا
+//   setAnalysisData: (value: AnalysisDataType | ((prev: AnalysisDataType) => AnalysisDataType)) => void;
+// }
+
 interface TestModeProps {
   setShowResult: React.Dispatch<React.SetStateAction<boolean>> ;
-  setAnalysisData?: (updater: (prev: Record<string, any>) => Record<string, any>) => void;
+  setAnalysisData: React.Dispatch<React.SetStateAction<AnalysisDataType>>;
 }
 
 
@@ -57,7 +70,7 @@ const TestMode : React.FC<TestModeProps> = ({setShowResult , setAnalysisData}) =
            
            <fieldset className=" h-full border border-blue-950 rounded-lg md:w-full w-[99vw] md:m-2">
             <legend className=" text-center sm:text-[15px] text-[12px]">
-              Four-choice mode analysis part     
+             analysis exam part     
             </legend>
  
            <div  id="importDataManual&Analys" className="w-full h-full flex flex-col py-10 px-4  justify-center ">
@@ -109,7 +122,7 @@ const TestMode : React.FC<TestModeProps> = ({setShowResult , setAnalysisData}) =
 
             <div id="AdvancedData" className="mt-6 md:mt-10">
               
-            <h1 className=" text-red-800 text-[10px] md:text-[13px] mb-2">Enter the following information for more advanced analysis.</h1>
+            <h1 className=" text-red-800 text-[10px] md:text-[13px] mb-2">Enter the following information for discrimination Index.</h1>
 
             <div  id="fildAdvancedData" className=" w-full  h-full grid grid-cols-1 md:grid-cols-2 gap-10 lg:grid-cols-4">
              
