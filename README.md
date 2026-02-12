@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Test Item Analyzer
 
-## Getting Started
+A modern web application built with Next.js, TypeScript, and Tailwind CSS that helps educators, test developers, and psychometricians evaluate the quality of test questions. By simply entering response data, you can instantly compute two key metrics: difficulty percentage (p-value) and discrimination index.
 
-First, run the development server:
+![Demo screenshot or placeholder](https://via.placeholder.com/800x400?text=Test+Item+Analyzer+Demo)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 📊 Difficulty Percentage (p-value)  
+  Calculate the proportion of test-takers who answered a question correctly. Values range from 0.0 (extremely hard) to 1.0 (very easy).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 📈 Discrimination Index  
+  Measure how well a question distinguishes between high-performing and low-performing students. Uses the upper-lower 27% method or point-biserial correlation (specify your method here).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ⚡ Instant Calculation  
+  Input your item response data (e.g., correct/incorrect per student, total scores) and get immediate results – no page reload required.
 
-## Learn More
+- 📱 Responsive Design  
+  Clean, mobile-friendly interface built with Tailwind CSS.
 
-To learn more about Next.js, take a look at the following resources:
+- 🧪 Type-Safe  
+  Written in TypeScript for robust, maintainable code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Built With
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/) – React framework with server-side rendering and static generation
+- [TypeScript](https://www.typescriptlang.org/) – typed JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) – utility-first CSS framework
 
-## Deploy on Vercel
+## 🚀 Live Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See the application in action!  
+👉 [Click here to view the live site](https://exam-analysis-lake.vercel.app/)  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*(Replace the URL with your actual deployment link)*
