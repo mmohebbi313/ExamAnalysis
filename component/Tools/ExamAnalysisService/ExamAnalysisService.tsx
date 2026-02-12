@@ -10,9 +10,14 @@ interface Form {
     numberCorrectWeak: number
 }
 
+type AnalysisDataType = {
+  difficultyIndex: number;
+  discriminationIndex: number;
+}
+
 interface ExamAnalysisServiceProp {
     form?: Form;
-    setAnalysisData?: (updater: (prev: Record<string, any>) => Record<string, any>) => void;
+    setAnalysisData?: React.Dispatch<React.SetStateAction<AnalysisDataType>>;
 }
 
 const ExamAnalysisService: React.FC<ExamAnalysisServiceProp> = ({ form, setAnalysisData }) => {

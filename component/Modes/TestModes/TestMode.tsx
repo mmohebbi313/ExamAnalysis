@@ -33,9 +33,15 @@ interface TestModeProps {
 const TestMode : React.FC<TestModeProps> = ({setShowResult , setAnalysisData}) => {
 
 
-    const [ participants , setParticipants] = useState(0)
     const { width , height } = useWindowSize()
-    const [ form , setForm] = useState({ participants: 0 , numberCorrect: 0})
+    const [ form , setForm] = useState(
+    {numberCorrect: 0,
+    participants: 0,
+    numberStrong: 0,
+    numberWeak: 0,
+    numberCorrectStrong: 0,
+    numberCorrectWeak: 0}
+    )
     const [ activeButton , setActiveButton ] = useState(true)
     
 

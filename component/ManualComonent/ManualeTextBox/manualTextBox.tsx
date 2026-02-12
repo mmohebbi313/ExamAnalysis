@@ -3,12 +3,21 @@
 import React, { forwardRef, useImperativeHandle, useState } from 'react';
 import { useWindowSize } from '@/component/Tools/UseWindowSize/useWindowSize';
 
+interface Form {
+    numberCorrect: number,
+    participants: number,
+    numberStrong: number,
+    numberWeak: number,
+    numberCorrectStrong: number,
+    numberCorrectWeak: number
+}
+
 interface ManualeTextBoxProps {
   type?: string;
   placeholder?: string;
   title?: string;
   name?: string;
-  setForm?: (updater: (prev: Record<string, any>) => Record<string, any>) => void;
+  setForm?: React.Dispatch<React.SetStateAction<Form>>;
 }
 
 interface ManualTextBoxRef {
